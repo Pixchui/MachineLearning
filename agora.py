@@ -3,9 +3,14 @@ import sklearn as sk
 
 df = pd.read_csv('dados_jogos_prontos.csv')
 
-#Identificar valores 0 e 1 nas colunas de gênero e plataforma
-#Remover as linhas com valor 0 nas colunas
+#Print nas linhas duplicadas
 
-for coluna in df.columns:
-    if coluna.startswith('Gênero_') or coluna.startswith('Plataforma_'):
-        df = df[df[coluna] != 0]
+linhas_duplicadas = df[df.duplicated()]
+
+print(linhas_duplicadas)
+
+#Removendo as linhas duplicadas
+
+df_sem_duplicatas = df.drop_duplicates()
+
+print(df_sem_duplicatas)
