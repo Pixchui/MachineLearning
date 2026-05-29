@@ -13,4 +13,4 @@ print(linhas_duplicadas)
 
 df_sem_duplicatas = df.drop_duplicates()
 
-print(df_sem_duplicatas)
+print(df_sem_duplicatas.duplicated().sum())
